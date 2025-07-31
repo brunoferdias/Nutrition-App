@@ -1,0 +1,34 @@
+name: untitled
+description: "My Nutrition Project"
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  http:
+  flutter_riverpod:
+  hive:
+  hive_flutter:
+  google_fonts:
+  flutter_animate:
+  path_provider:
+  flutter_dotenv:
+
+dev_dependencies:
+  hive_generator:
+  build_runner:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - .env
