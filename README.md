@@ -1,5 +1,6 @@
 # NutriScan AI 🍏
 
+(Em Desenvolvimento)
 Um app Flutter simples que usa inteligência artificial (OpenAI) para identificar calorias e informações nutricionais de alimentos e produtos.
 
 ## Funcionalidades
@@ -11,7 +12,7 @@ Um app Flutter simples que usa inteligência artificial (OpenAI) para identifica
 ## Tecnologias
 - Flutter
 - Riverpod
-- Hive (planejado)
+- Hive
 - OpenAI API
 
 ## Como usar
