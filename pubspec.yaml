@@ -11,13 +11,15 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   http:
-  flutter_riverpod:
   hive:
   hive_flutter:
   google_fonts:
   flutter_animate:
   path_provider:
   flutter_dotenv:
+  provider:
+  intl:
+
 
 dev_dependencies:
   hive_generator:

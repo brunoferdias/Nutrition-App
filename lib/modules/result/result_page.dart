@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../app/constants.dart';
 import '../../core/services/openai_service.dart';
 
 class ResultPage extends StatefulWidget {
@@ -41,41 +42,41 @@ class _ResultPageState extends State<ResultPage> {
     }
   }
 
-  String getImageUrl(String productName) {
-    final query = Uri.encodeComponent(productName);
-    return 'https://source.unsplash.com/400x300/?$query';
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.productName)),
+      backgroundColor: backgroundColor,
+      appBar: AppBar(
+        backgroundColor: backgroundColor,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          widget.productName,
+          style: const TextStyle(color: Colors.white),
+        ),
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(20),
           child: loading
-              ? const CircularProgressIndicator()
-              : Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.network(
-                getImageUrl(widget.productName),
-                height: 200,
-                width: double.infinity,
-                fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => const Icon(
-                  Icons.image_not_supported,
-                  size: 100,
-                  color: Colors.grey,
-                ),
+              ? const CircularProgressIndicator(color: Colors.white)
+              : Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              color: Colors.white10,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Text(
+              result ?? 'Ops, encontrei nada',
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                height: 1.5,
               ),
-              const SizedBox(height: 16),
-              Text(
-                result ?? 'Nenhuma informação encontrada.',
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 18),
-              ),
-            ],
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
       ),
