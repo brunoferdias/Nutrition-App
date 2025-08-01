@@ -3,12 +3,10 @@ import 'package:http/http.dart' as http;
 
 class OpenAIService {
   final String apiKey;
-
   OpenAIService(this.apiKey);
 
   Future<String> fetchNutritionInfo(String productName) async {
     final url = Uri.parse('https://api.openai.com/v1/chat/completions');
-
     final response = await http.post(
       url,
       headers: {
@@ -21,13 +19,12 @@ class OpenAIService {
           {
             'role': 'user',
             'content':
-            'Me diga quantas calorias tem em média uma porção de "$productName". Responda de forma simples, exemplo: "140 calorias, porção: 350ml. Uma bebida gaseificada com açúcar."'
+            'Me diga quantas calorias tem em média uma porção de "$productName". Responda de forma simples, exemplo: "140 calorias, porção: 350ml. Uma bebida gaseificada com açúcar. E me fale o item que mais se destaca da tabela nutricional e quantidade"'
           }
         ],
         'temperature': 0.7
       }),
     );
-
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       return data['choices'][0]['message']['content'];
@@ -36,6 +33,5 @@ class OpenAIService {
       print('BODY: ${response.body}');
       throw Exception('Falha ao consultar a IA');
     }
-
   }
 }

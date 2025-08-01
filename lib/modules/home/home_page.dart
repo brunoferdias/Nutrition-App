@@ -113,6 +113,7 @@ class _HomePageState extends State<HomePage> {
               TextField(
                 controller: _controller,
                 style: const TextStyle(color: Colors.white),
+                textCapitalization: TextCapitalization.sentences,
                 decoration: InputDecoration(
                   labelText: 'Digite o Alimento ou Bebida',
                   labelStyle: const TextStyle(color: Colors.white70),
